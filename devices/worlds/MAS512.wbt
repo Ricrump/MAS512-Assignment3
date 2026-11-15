@@ -9,14 +9,14 @@ WorldInfo {
   contactProperties [
     ContactProperties {
       coulombFriction [
-        0.1
+        1.5
       ]
     }
   ]
 }
 Viewpoint {
-  orientation -0.5058442053798302 -0.4827165564268251 0.7149170343718745 4.439707676935708
-  position 0.06169750819716535 3.8945546794108927 10.928015887839855
+  orientation -0.5302267841572182 -0.44236187548893957 0.7233087366237206 4.393069251291405
+  position -0.12008130909759895 3.0960620405652866 8.17294466175174
 }
 TexturedBackground {
 }
@@ -27,13 +27,16 @@ RectangleArena {
   floorSize 5 5
 }
 DEF ROBOT Pioneer3at {
-  translation -1.43071 -0.000537475 0.2682
+  translation -1.42756 -0.00130537 0
   rotation 0.2456330634470235 0.9693402503805993 -0.006623981710974562 0.0107785
   controller "<extern>"
+  supervisor TRUE
   extensionSlot [
     Camera {
+      translation 0.2 0 0.2
     }
     Lidar {
+      translation 0.2 0 0
     }
     Accelerometer {
     }
@@ -44,8 +47,7 @@ DEF ROBOT Pioneer3at {
   ]
 }
 Solid {
-  translation 0.487558 5.81069e-05 1.10528
-  rotation 0.0005559419140100932 -0.9999998453257591 -1.6644697425493664e-05 -0.060615307179586075
+  translation 0.534535 -0.050026 0.781545
   children [
     Shape {
       appearance Appearance {
@@ -66,6 +68,8 @@ Solid {
     radius 0.5
   }
   physics Physics {
+    density -1
+    mass 50
   }
 }
 DEF TARGET Solid {
@@ -84,9 +88,4 @@ DEF TARGET Solid {
     }
   ]
   name "Objective"
-}
-Robot {
-  name "supervisor_controller"
-  controller "test_supervisor"
-  supervisor TRUE
 }
