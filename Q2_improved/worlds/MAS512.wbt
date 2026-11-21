@@ -1,0 +1,143 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/adept/pioneer3/protos/Pioneer3at.proto"
+
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        1.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.5302267841572182 -0.44236187548893957 0.7233087366237206 4.393069251291405
+  position -0.12008130909759895 3.0960620405652866 8.17294466175174
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0.352659 -0.211906 0
+  floorSize 5 5
+  wallHeight 0.5
+}
+DEF ROBOT Pioneer3at {
+  translation -1.42756 -0.00130537 0
+  rotation 0.2456330634470235 0.9693402503805993 -0.006623981710974562 0.0107785
+  controller "<extern>"
+  supervisor TRUE
+  extensionSlot [
+    Camera {
+      translation 0.2 0 0.35
+    }
+    Lidar {
+      translation 0.2 0 0.35
+      fieldOfView 6.28318
+      maxRange 5
+      numberOfLayers 1
+    }
+    Accelerometer {
+    }
+    Gyro {
+    }
+    GPS {
+    }
+  ]
+}
+DEF OBSTACLE_RED Solid {
+  translation 1.2 -1.15 0.25
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.2
+      }
+    }
+  ]
+  boundingObject Cylinder {
+    height 0.5
+    radius 0.2
+  }
+}
+DEF OBSTACLE_BLUE Solid {
+  translation 0.1 -0.8 0.25
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 1
+        }
+      }
+      geometry Box {
+        size 0.4 0.4 0.5
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.4 0.4 0.5
+  }
+}
+DEF OBSTACLE_YELLOW Solid {
+  translation 0.7 0.3 0.25
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.85 0
+        }
+      }
+      geometry Box {
+        size 0.3 0.3 0.5
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.3 0.3 0.5
+  }
+}
+DEF OBSTACLE_PURPLE Solid {
+  translation 6 6 0.25
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.6 0 0.8
+        }
+      }
+      geometry Box {
+        size 0.35 0.35 0.5
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.35 0.35 0.5
+  }
+}
+DEF TARGET Solid {
+  translation 2.09 -1.88 0.01
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 1 0
+        }
+        texture ImageTexture {
+        }
+      }
+      geometry Plane {
+      }
+    }
+  ]
+  name "Objective"
+}
